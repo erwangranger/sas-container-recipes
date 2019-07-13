@@ -57,6 +57,12 @@ RUN set -e; \
 	yum clean all; \
 	rm --verbose --recursive --force sssd* /root/.cache /var/cache/yum;
 
+WORKDIR /tmp
+RUN set -e; \
+    yum install --assumeyes  sudo; \
+    yum clean all; \
+    rm --verbose --recursive --force /root/.cache /var/cache/yum;
+
 RUN echo "%sas        ALL=(ALL)       NOPASSWD: /usr/sbin/sssd" >> /etc/sudoers
 COPY sssd_pre_deploy.sh /tmp/000_sssd_pre_deploy.sh
 USER sas

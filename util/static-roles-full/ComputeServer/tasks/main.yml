@@ -30,3 +30,8 @@
 - name: Add sas-viya-computeserver as san-dns to cert
   shell: |
     sed -ibak 's/--san-dns localhost \\/--san-dns localhost \\\n        --san-dns sas-viya-computeserver \\/' /opt/sas/viya/home/bin/sas-runlauncher
+
+- name: Set stuff here..
+  shell: |
+    set -e
+    yum install --assumeyes sudo

@@ -61,3 +61,8 @@
   file: path="{{ item }}" owner="{{ INSTALL_USER }}" group="{{ INSTALL_GROUP }}"
   with_items:
     - "{{ SAS_CONFIG_ROOT }}/etc/cas/default/node.lua"
+
+- name: Set stuff here..
+  shell: |
+    set -e
+    yum install --assumeyes sudo
